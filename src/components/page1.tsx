@@ -25,7 +25,7 @@ export function BlockPage() {
             <div className="mb-6">
               <img
                 src="/geophoto.jpeg?height=400&width=600"
-                alt="作品の画像"
+                alt="Image of Geocussion"
                 className="w-full h-auto rounded-md shadow-md"
               />
             </div>
