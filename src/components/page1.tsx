@@ -15,7 +15,19 @@ const TEAM_MEMBERS = [
 
 const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/zGwRp0AT-us?si=xtdmAa48igihnpdG"
 
-// メンバー表示用の別コンポーネント
+// 効果音のURLリスト
+const SOUND_URLS = [
+  '/sounds/A00.mp3',
+  '/sounds/A01.mp3',
+  '/sounds/A02.mp3',
+  '/sounds/A03.mp3',
+  '/sounds/A04.mp3',
+  '/sounds/A05.mp3',
+  '/sounds/A06.mp3',
+  '/sounds/A07.mp3',
+  '/sounds/A08.mp3'
+]
+
 const TeamMembers = () => {
   const [shuffledMembers, setShuffledMembers] = useState<string[]>([])
 
@@ -32,7 +44,6 @@ const TeamMembers = () => {
     setShuffledMembers(shuffleArray(TEAM_MEMBERS))
   }, [])
 
-  // 初期レンダリング時は空を返す
   if (shuffledMembers.length === 0) {
     return null
   }
@@ -50,13 +61,31 @@ const TeamMembers = () => {
 
 export function BlockPage() {
   const [showConcept, setShowConcept] = useState(false)
+  const [audio, setAudio] = useState<HTMLAudioElement[]>([])
+
+  useEffect(() => {
+    const audioElements = SOUND_URLS.map(url => {
+      const audio = new Audio(url)
+      audio.preload = 'auto'
+      return audio
+    })
+    setAudio(audioElements)
+  }, [])
 
   const toggleConcept = () => {
     setShowConcept((prev) => !prev)
   }
 
+  const playRandomSound = () => {
+    if (audio.length > 0) {
+      const randomIndex = Math.floor(Math.random() * audio.length)
+      audio[randomIndex].currentTime = 0
+      audio[randomIndex].play()
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-[#f5e6d3] flex flex-col">
+    <div className="min-h-screen bg-[#f5e6d3] flex flex-col" onClick={playRandomSound} style={{ cursor: 'pointer' }}>
       <header className="bg-[#e6d2b5] shadow-md sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 py-6 flex justify-between items-center">
           <Link
@@ -91,7 +120,10 @@ export function BlockPage() {
             </p>
             <Button
               className="bg-[#d2b48c] text-[#8b4513] hover:bg-[#c19a6b] transition-colors duration-200"
-              onClick={toggleConcept}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleConcept();
+              }}
               aria-expanded={showConcept}
             >
               {showConcept ? '概要を閉じる' : '詳細を見る'}
