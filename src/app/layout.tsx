@@ -14,8 +14,27 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Geocussion",
-  description: "Geocussion is a musical instrument made of sand.",
+  title: "Geocussion - 砂を使った革新的な楽器",
+  description: "Geocussionは砂を叩き押し固めてオブジェクトを作り出し、形を変えることで異なる音色を奏でられる革新的な楽器です。4ZIGENチームによる実験的サウンドプロジェクト。",
+  keywords: ["Geocussion", "砂の楽器", "実験的音楽", "インタラクティブ楽器", "サウンドアート", "4ZIGEN"],
+  authors: [
+    { name: "岡空来" },
+    { name: "金澤政宜" },
+    { name: "中田裕紀" },
+    { name: "南田桂吾" }
+  ],
+  creator: "4ZIGEN",
+  openGraph: {
+    title: "Geocussion - 砂を使った革新的な楽器",
+    description: "砂を叩き押し固めてオブジェクトを作り出し、音を大きく鳴らしたいならば大きなオブジェクトを作り、形を変えれば異なる音を鳴らせる砂場上の楽器。",
+    type: "website",
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Geocussion - 砂を使った革新的な楽器",
+    description: "砂を叩き押し固めてオブジェクトを作り出し、形を変えることで異なる音色を奏でられる革新的な楽器です。",
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
