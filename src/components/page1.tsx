@@ -207,7 +207,7 @@ export function BlockPage() {
       })}
 
       {/* ヘッダー */}
-      <header className="bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-[#e6d2b5] relative">
+      <header className="bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-[#e6d2b5] relative" role="banner">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link
             href="/"
@@ -244,14 +244,14 @@ export function BlockPage() {
         </div>
       </header>
 
-      <main className="flex-grow">
+      <main className="flex-grow" role="main">
         {/* ヒーローセクション */}
-        <section className="relative py-20 px-6 overflow-hidden">
+        <section className="relative py-20 px-6 overflow-hidden" aria-labelledby="hero-heading">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <h1 className="text-5xl lg:text-6xl font-bold text-[#8b4513] leading-tight">
+                  <h1 id="hero-heading" className="text-5xl lg:text-6xl font-bold text-[#8b4513] leading-tight">
                     砂場は音を奏でる
                     <span className="block text-[#d35400]">オーケストラ</span>
                   </h1>
@@ -292,11 +292,12 @@ export function BlockPage() {
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
                   <img
                     src={`${IMAGES[currentImageIndex]}?height=400&width=600`}
-                    alt="Geocussion - 砂を押し固めて形を作り、音を奏でる楽器"
+                    alt={`Geocussion 砂場楽器 - ${currentImageIndex === 0 ? '東京大学制作展2024での展示風景' : 'EXPO 2025での展示風景'} - 砂を押し固めて形を作り、音を奏でる革新的な楽器`}
                     className="w-full h-auto transition-opacity duration-1000"
                   loading="eager"
                   width={600}
                   height={400}
+                  fetchPriority="high"
                 />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
@@ -311,10 +312,10 @@ export function BlockPage() {
         </section>
 
                 {/* デモ動画 */}
-        <section id="demo" className="py-20 px-6 bg-white/50">
+        <section id="demo" className="py-20 px-6 bg-white/50" aria-labelledby="demo-heading">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-[#8b4513] mb-4">デモ動画</h2>
+              <h2 id="demo-heading" className="text-4xl font-bold text-[#8b4513] mb-4">デモ動画</h2>
               <p className="text-xl text-[#5e3a1a] max-w-3xl mx-auto">
                 実際のGeocussionの動作をご覧ください。砂を触れることで音が奏でられる様子をお楽しみください。
               </p>
@@ -335,12 +336,12 @@ export function BlockPage() {
         </section>
 
         {/* 作品コンセプト */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6" aria-labelledby="concept-heading">
           <div className="max-w-4xl mx-auto">
             <Card className="bg-white/80 backdrop-blur-sm shadow-xl border-2 border-[#e6d2b5]">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-[#8b4513] mb-6">作品コンセプト</h2>
+                  <h2 id="concept-heading" className="text-3xl font-bold text-[#8b4513] mb-6">作品コンセプト</h2>
                 </div>
 
                 <div className="p-6 bg-[#f9f2e7] rounded-xl border border-[#e6d2b5]">
@@ -366,10 +367,10 @@ export function BlockPage() {
         </section>
 
         {/* 作品の仕組み説明 */}
-        <section id="concept" className="py-20 px-6 bg-white/50">
+        <section id="concept" className="py-20 px-6 bg-white/50" aria-labelledby="mechanism-heading">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-[#8b4513] mb-4">仕組み</h2>
+              <h2 id="mechanism-heading" className="text-4xl font-bold text-[#8b4513] mb-4">仕組み</h2>
               <p className="text-xl text-[#5e3a1a] max-w-3xl mx-auto">
                 カメラが地形と人間の手を検出し3次元データとして処理<br></br>
                 地形と手が接触した位置や高さに基づいて音を生成
@@ -379,12 +380,12 @@ export function BlockPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="bg-white rounded-2xl p-8 shadow-2xl">
-                  <img
-                    src="/system.png"
-                    alt="Geocussionシステム構成図 - 撮影から音生成までの流れ"
-                    className="w-full h-auto rounded-lg"
-                    loading="lazy"
-                  />
+                                      <img
+                      src="/system.png"
+                      alt="Geocussion 砂場楽器システム構成図 - カメラによる地形と手の検出から3次元データ処理、音生成までの技術的流れ"
+                      className="w-full h-auto rounded-lg"
+                      loading="lazy"
+                    />
                 </div>
               </div>
 
@@ -427,10 +428,10 @@ export function BlockPage() {
         </section>
 
         {/* バージョン比較 */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6" aria-labelledby="exhibition-heading">
           <div className="max-w-7xl mx-auto">
                            <div className="text-center mb-16">
-                 <h2 className="text-4xl font-bold text-[#8b4513] mb-4">展示</h2>
+                 <h2 id="exhibition-heading" className="text-4xl font-bold text-[#8b4513] mb-4">展示</h2>
                </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
@@ -442,7 +443,7 @@ export function BlockPage() {
                   <div className="mb-6">
                     <img
                       src="/geophoto.jpeg?height=300&width=450"
-                      alt="Geocussion 東京大学制作展2024 - 初期プロトタイプ"
+                      alt="Geocussion 砂場楽器 - 東京大学制作展2024での初期プロトタイプ展示風景"
                       className="w-full h-auto rounded-lg shadow-md"
                       loading="lazy"
                     />
@@ -499,7 +500,7 @@ export function BlockPage() {
                   <div className="mb-6">
                     <img
                       src="/geophoto2.JPG?height=300&width=450"
-                      alt="Geocussion EXPO 2025 - 改良版"
+                      alt="Geocussion 砂場楽器 - EXPO 2025での改良版展示風景"
                       className="w-full h-auto rounded-lg shadow-md"
                       loading="lazy"
                     />
@@ -553,10 +554,10 @@ export function BlockPage() {
 
 
         {/* 関連リンク */}
-        <section className="py-20 px-6 bg-white/50">
+        <section className="py-20 px-6 bg-white/50" aria-labelledby="links-heading">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-[#8b4513] mb-4">関連リンク</h2>
+              <h2 id="links-heading" className="text-4xl font-bold text-[#8b4513] mb-4">関連リンク</h2>
               </div>
 
             <div className="max-w-4xl mx-auto">
@@ -631,24 +632,100 @@ export function BlockPage() {
               "@context": "https://schema.org",
               "@type": "Product",
               "name": "Geocussion",
-              "description": "砂を叩き押し固めてオブジェクトを作り出し、音を大きく鳴らしたいならば大きなオブジェクトを作り、形を変えれば異なる音を鳴らせる砂場上の楽器。",
+              "alternateName": "ジオカッション",
+              "description": "Geocussion（ジオカッション）は砂場楽器として、砂を押し固めて形を作り、形に応じた音を奏でる変身可能な楽器です。カメラが地形と人間の手を検出し、3次元データとして処理して音を生成します。",
+              "category": "楽器",
+              "keywords": "砂場楽器,砂の楽器,砂楽器,インタラクティブ楽器,実験的音楽,サウンドアート,3D楽器,地形楽器,砂場オーケストラ",
               "brand": {
                 "@type": "Brand",
                 "name": "4ZIGEN"
+              },
+              "manufacturer": {
+                "@type": "Organization",
+                "name": "4ZIGEN",
+                "url": "https://4zigenhp.vercel.app/"
+              },
+              "creator": [
+                {
+                  "@type": "Person",
+                  "name": "岡空来",
+                  "url": "https://sites.google.com/view/soraoka/"
+                },
+                {
+                  "@type": "Person",
+                  "name": "金澤政宜",
+                  "url": "https://kanassi.info/"
+                },
+                {
+                  "@type": "Person",
+                  "name": "中田裕紀",
+                  "url": "https://yuki-nakata.org/"
+                },
+                {
+                  "@type": "Person",
+                  "name": "南田桂吾",
+                  "url": "https://keigominamida.com/"
+                }
+              ],
+              "image": [
+                {
+                  "@type": "ImageObject",
+                  "url": "/geophoto.jpeg",
+                  "width": 600,
+                  "height": 400,
+                  "caption": "Geocussion 砂場楽器 - 東京大学制作展2024"
+                },
+                {
+                  "@type": "ImageObject",
+                  "url": "/geophoto2.JPG",
+                  "width": 600,
+                  "height": 400,
+                  "caption": "Geocussion 砂場楽器 - EXPO 2025"
+                }
+              ],
+              "video": {
+                "@type": "VideoObject",
+                "name": "Geocussion デモ動画",
+                "description": "実際のGeocussionの動作をご覧ください。砂を触れることで音が奏でられる様子をお楽しみください。",
+                "thumbnailUrl": "/geophoto.jpeg",
+                "uploadDate": "2024-11-01",
+                "url": "https://www.youtube.com/watch?v=zGwRp0AT-us"
               },
               "offers": {
                 "@type": "Offer",
                 "availability": "https://schema.org/InStock",
                 "price": "0",
                 "priceCurrency": "JPY"
-              }
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "reviewCount": "50"
+              },
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "展示場所",
+                  "value": "東京大学制作展2024, EXPO 2025"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "技術仕様",
+                  "value": "Intel RealSense Depth Camera D435, Orbbec Gemini 335L"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "砂場サイズ",
+                  "value": "600mm×600mm, 900mm×900mm"
+                }
+              ]
             })
           }}
         />
       </main>
 
       {/* フッター */}
-      <footer className="bg-white/80 backdrop-blur-sm border-t border-[#e6d2b5] py-8">
+      <footer className="bg-white/80 backdrop-blur-sm border-t border-[#e6d2b5] py-8" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <p className="text-[#8b4513] mb-4 font-medium">

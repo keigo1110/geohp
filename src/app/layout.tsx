@@ -14,9 +14,26 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Geocussion - 砂を使った革新的な楽器",
-  description: "Geocussionは砂を叩き押し固めてオブジェクトを作り出し、形を変えることで異なる音色を奏でられる変身可能な楽器です。4ZIGENチームによる実験的サウンドプロジェクト。",
-  keywords: ["Geocussion", "砂の楽器", "実験的音楽", "インタラクティブ楽器", "サウンドアート", "4ZIGEN"],
+  metadataBase: new URL('https://geohp.vercel.app'),
+  title: "Geocussion - 砂場楽器 | 砂を押し固めて音を奏でる変身可能な楽器",
+  description: "Geocussion（ジオカッション）は砂場楽器として、砂を押し固めて形を作り、形に応じた音を奏でる変身可能な楽器です。カメラが地形と人間の手を検出し、3次元データとして処理して音を生成します。4ZIGENチームによる実験的サウンドプロジェクト。",
+  keywords: [
+    "Geocussion",
+    "ジオカッション",
+    "砂場楽器",
+    "砂の楽器",
+    "砂楽器",
+    "砂を使った楽器",
+    "インタラクティブ楽器",
+    "実験的音楽",
+    "サウンドアート",
+    "3D楽器",
+    "地形楽器",
+    "砂場オーケストラ",
+    "4ZIGEN",
+    "東京大学制作展",
+    "EXPO 2025"
+  ],
   authors: [
     { name: "岡空来" },
     { name: "金澤政宜" },
@@ -24,17 +41,38 @@ export const metadata: Metadata = {
     { name: "南田桂吾" }
   ],
   creator: "4ZIGEN",
+  publisher: "4ZIGEN",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://geohp.vercel.app"
+  },
   openGraph: {
-    title: "Geocussion - 砂を使った革新的な楽器",
-    description: "砂を叩き押し固めてオブジェクトを作り出し、音を大きく鳴らしたいならば大きなオブジェクトを作り、形を変えれば異なる音を鳴らせる砂場上の楽器。",
+    title: "Geocussion - 砂場楽器 | 砂を押し固めて音を奏でる変身可能な楽器",
+    description: "Geocussion（ジオカッション）は砂場楽器として、砂を押し固めて形を作り、形に応じた音を奏でる変身可能な楽器です。カメラが地形と人間の手を検出し、3次元データとして処理して音を生成します。",
     type: "website",
     locale: "ja_JP",
+    siteName: "Geocussion",
+    images: [
+      {
+        url: "/geophoto.jpeg",
+        width: 600,
+        height: 400,
+        alt: "Geocussion 砂場楽器 - 砂を押し固めて形を作り、音を奏でる楽器"
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Geocussion - 砂を使った革新的な楽器",
-    description: "砂を叩き押し固めてオブジェクトを作り出し、形を変えることで異なる音色を奏でられる革新的な楽器です。",
+    title: "Geocussion - 砂場楽器 | 砂を押し固めて音を奏でる変身可能な楽器",
+    description: "Geocussion（ジオカッション）は砂場楽器として、砂を押し固めて形を作り、形に応じた音を奏でる変身可能な楽器です。",
+    images: ["/geophoto.jpeg"],
   },
+  other: {
+    "geo.region": "JP",
+    "geo.placename": "Tokyo",
+    "geo.position": "35.6762;139.6503",
+    "ICBM": "35.6762, 139.6503"
+  }
 };
 
 export default function RootLayout({
