@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Geocussion - 砂を使った革新的な楽器",
-  description: "Geocussionは砂を叩き押し固めてオブジェクトを作り出し、形を変えることで異なる音色を奏でられる革新的な楽器です。4ZIGENチームによる実験的サウンドプロジェクト。",
+  description: "Geocussionは砂を叩き押し固めてオブジェクトを作り出し、形を変えることで異なる音色を奏でられる変身可能な楽器です。4ZIGENチームによる実験的サウンドプロジェクト。",
   keywords: ["Geocussion", "砂の楽器", "実験的音楽", "インタラクティブ楽器", "サウンドアート", "4ZIGEN"],
   authors: [
     { name: "岡空来" },
